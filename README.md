@@ -15,6 +15,7 @@ Types of NLP:
 Going to try and predict whether a tweet resembles a disaster tweet or not using NLP with various models and experimentations which would help in our classification.
 
 Dataset Taken from [Kaggle's Disaster Tweets](https://www.kaggle.com/c/nlp-getting-started)
+
 ---
 **Tokenization** is straight up mapping the words without any weight/values, just regular numerical encoding  
   
