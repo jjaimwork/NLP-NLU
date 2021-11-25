@@ -18,6 +18,8 @@ import datetime, time
 from collections import ChainMap
 from distutils.dir_util import copy_tree
 
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support
+
 # generate classes     
 def generate_classlist_all(dataset_dir):
     '''
@@ -166,11 +168,12 @@ def loop_through_files(dataset_dir):
     ------
     data_dir(str) - dataset directory
     '''
-    total_files = []
-    for dirpath, dirnames, filenames in os.walk(data_dir):
-        print(f"There are {len(dirnames)} directories and {len(filenames)} images in '{dirpath}'.")
-        total_files.append(len(filenames))
-    return sum(total_files)
+    #total_files = []
+    for dirpath, dirnames, filenames in os.walk(dataset_dir):
+        print(filenames)
+        print(f"There are {len(dirnames)} directories and {len(filenames)} files in '{dirpath}'.")
+        #total_files.append(len(filenames))
+        #print(sum(total_files))
 
 def plot_random_image(class_list, directory):
     
@@ -428,3 +431,50 @@ def create_tensorboard_callback(dir_name, experiment_name):
     tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir)
     print(f'Saving Tensorboard logfiles to {log_dir}')
     return tensorboard_callback
+
+    
+    
+
+def evaluate_model_results(y_preds, y_true):
+    '''
+    returns a list of model evaluation results
+    
+    Paremeters
+    -------
+    y_preds - predictions from the model
+    y_true - true labels from test split
+    '''
+    model_accuracy = accuracy_score(y_true, y_preds)
+    model_precision, model_recall, model_f1, _ = precision_recall_fscore_support(y_true, y_preds, average='weighted')
+    
+    model_results = {'accuracy' : model_accuracy,
+                     'precision' : model_precision,
+                     'recall': model_recall,
+                     'f1-score': model_f1}
+    return model_results
+
+    
+def evaluate_text_preds(y_preds, y_true, y_true_sentences):
+    '''
+    outputs a list of prediction, true labels, and its sentence
+    
+    Parameters
+    -------
+    y_preds - predictions from the model
+    y_true - true labels from test split
+    y_true_sentences - sentence of the true label
+    '''
+    pred_results = []
+    for i in range(0, len(y_preds)):
+        if y_preds[i] == y_true[i]:
+            #print('correct prediction')
+            pred_results.append('Correct Prediction')
+        else:
+            #print('wrong prediction')
+            pred_results.append('Wrong Prediction')
+            
+    for i in range(0, len(pred_results)):
+        print('---\n')
+        print(f'{pred_results[i]} \n'
+              f'Prediction: {y_preds[i]} | True Label: {y_true[i]}\n\n'
+              f'{y_true_sentences[i]}\n')
