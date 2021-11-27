@@ -14,7 +14,7 @@ Types of NLP:
 
 Going to try and predict whether a tweet resembles a disaster tweet or not using NLP with various models and experimentations which would help in our classification.
 
-Dataset Taken from [Kaggle's Disaster Tweets](https://www.kaggle.com/c/nlp-getting-started)
+Dataset Taken from [Kaggle's Disaster Tweets](https://www.kaggle.com/c/nlp-getting-started) [PubMed 200k RCT dataset](https://github.com/Franck-Dernoncourt/pubmed-rct)
 ---
 **Tokenization** is straight up mapping the words without any weight/values, just regular numerical encoding  
   
@@ -63,3 +63,8 @@ and divided by the total amount of train_sentences  `sum([len(i.split()) for i i
     
      
 > You must vectorize your text before feeding it to the embedding layer
+
+Go to 
+[Experimentation for more of WorkFlow](https://github.com/jjaimwork/RNN-Natural-Language-Processing/blob/master/Milestone%20Project%20Experimentation.ipynb)  
+
+[Milestone Notebook for the Conclusion and also a step by step overview of what we've done](https://github.com/jjaimwork/RNN-Natural-Language-Processing/blob/master/Milestone%20Project%20%5BExplained%5D.ipynb)  
