@@ -64,7 +64,7 @@ and divided by the total amount of train_sentences  `sum([len(i.split()) for i i
      
 > You must vectorize your text before feeding it to the embedding layer
 
-Go to 
-[Experimentation for more of WorkFlow](https://github.com/jjaimwork/RNN-Natural-Language-Processing/blob/master/Milestone%20Project%20Experimentation.ipynb)  
+### Go to   
+[Experimentation Notebook](https://github.com/jjaimwork/RNN-Natural-Language-Processing/blob/master/Milestone%20Project%20Experimentation.ipynb)    for more of WorkFlow
 
-[Milestone Notebook for the Conclusion and also a step by step overview of what we've done](https://github.com/jjaimwork/RNN-Natural-Language-Processing/blob/master/Milestone%20Project%20%5BExplained%5D.ipynb)  
+[Milestone Notebook](https://github.com/jjaimwork/RNN-Natural-Language-Processing/blob/master/Milestone%20Project%20%5BExplained%5D.ipynb)   for the Conclusion and also a step by step overview of what we've done
